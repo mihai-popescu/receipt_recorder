@@ -1,4 +1,4 @@
-package com.example.receiptrecorder
+package com.example.receipt.recorder
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

@@ -1,4 +1,4 @@
-package com.example.receiptrecorder.ui.placeholder
+package com.example.receipt.recorder.ui.placeholder
 
 import java.util.ArrayList
 import java.util.HashMap

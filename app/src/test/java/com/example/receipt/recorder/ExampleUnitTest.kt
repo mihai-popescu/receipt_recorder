@@ -1,4 +1,4 @@
-package com.example.receiptrecorder
+package com.example.receipt.recorder
 
 import org.junit.Test
 

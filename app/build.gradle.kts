@@ -1,14 +1,16 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    id(libs.plugins.androidx.navigation.safeargs.kotlin.get().pluginId)
+    id("kotlin-parcelize")
 }
 
 android {
-    namespace = "com.example.receiptrecorder"
+    namespace = "com.example.receipt.recorder"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.receiptrecorder"
+        applicationId = "com.example.receipt.recorder"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
@@ -47,9 +49,21 @@ dependencies {
     implementation(libs.navigation.ui.ktx)
 
     implementation(libs.koin)
-    implementation(libs.androidx.legacy.support.v4)
     implementation(libs.androidx.recyclerview)
+    implementation(libs.androidx.exifinterface)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+
+    implementation(libs.lifecycle.runtime.ktx)
+    implementation(libs.lifecycle.process)
+    implementation(libs.concurrent.futures.ktx)
+
+    // CameraX
+    implementation(libs.camera.camera2)
+    implementation(libs.camera.lifecycle)
+    implementation(libs.camera.view)
+//    implementation(libs.camera.extensions)
+//    implementation(libs.camera.video)
 }

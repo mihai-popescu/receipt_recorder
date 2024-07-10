@@ -1,5 +1,15 @@
 <resources>
     <string name="app_name">ReceiptRecorder</string>
+    <string name="storage_permission_title">Storage Access</string>
+    <string name="storage_permission_denied">We need your permission to access photos and videos taken with the camera. Please grant Storage permission.</string>
+    <string name="camera_permission_title">Camera Access</string>
+    <string name="camera_permission_denied">We need your permission to use your camera to take photos and videos. Please grant Camera permission.</string>
+    <string name="permission_request">Grant permissions</string>
+    <string name="cancel">Cancel</string>
+    <string name="camera_fragment_content">Camera Fragment</string>
+    <string name="take_photo">Take Photo</string>
+
+
     <string name="large_text">
         "Material is the metaphor.\n\n"
 
@@ -89,4 +99,6 @@
         "For example, position the FAB to one side of stream of a cards so the FAB won’t interfere "
         "when a user tries to pick up one of cards.\n\n"
     </string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

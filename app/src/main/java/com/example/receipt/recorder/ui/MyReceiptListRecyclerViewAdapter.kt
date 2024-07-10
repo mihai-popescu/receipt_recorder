@@ -1,14 +1,12 @@
-package com.example.receiptrecorder.ui
+package com.example.receipt.recorder.ui
 
 import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import com.example.receiptrecorder.R
+import com.example.receipt.recorder.databinding.FragmentReceiptItemBinding
 
-import com.example.receiptrecorder.ui.placeholder.PlaceholderContent.PlaceholderItem
-import com.example.receiptrecorder.databinding.FragmentReceiptItemBinding
+import com.example.receipt.recorder.ui.placeholder.PlaceholderContent.PlaceholderItem
 
 /**
  * [RecyclerView.Adapter] that can display a [PlaceholderItem].

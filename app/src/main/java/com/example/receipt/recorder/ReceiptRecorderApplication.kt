@@ -1,4 +1,4 @@
-package com.example.receiptrecorder
+package com.example.receipt.recorder
 
 import android.app.Application
 import org.koin.android.ext.koin.androidContext

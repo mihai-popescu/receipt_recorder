@@ -7,18 +7,22 @@
 
     <fragment
         android:id="@+id/ReceiptListFragment"
-        android:name="com.example.receiptrecorder.ui.ReceiptListFragment"
+        android:name="com.example.receipt.recorder.ui.ReceiptListFragment"
         android:label="Receipt List"
         tools:layout="@layout/fragment_receipt_list">
 
         <action
             android:id="@+id/action_ReceiptListFragment_to_ReceiptDetailsFragment"
             app:destination="@id/ReceiptDetailsFragment" />
+        <action
+            android:id="@+id/action_ReceiptListFragment_to_camera_nav"
+            app:destination="@id/camera_nav" />
     </fragment>
     <fragment
         android:id="@+id/ReceiptDetailsFragment"
-        android:name="com.example.receiptrecorder.ui.ReceiptDetailsFragment"
+        android:name="com.example.receipt.recorder.ui.ReceiptDetailsFragment"
         android:label="Receipt details"
         tools:layout="@layout/fragment_receipt_details"/>
+    <include app:graph="@navigation/camera_nav" />
 
 </navigation>

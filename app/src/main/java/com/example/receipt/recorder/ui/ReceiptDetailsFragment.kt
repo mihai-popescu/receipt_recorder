@@ -1,11 +1,11 @@
-package com.example.receiptrecorder.ui
+package com.example.receipt.recorder.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.receiptrecorder.R
+import com.example.receipt.recorder.R
 
 class ReceiptDetailsFragment : Fragment() {
 
