@@ -22,7 +22,13 @@
         android:id="@+id/ReceiptDetailsFragment"
         android:name="com.example.receipt.recorder.ui.ReceiptDetailsFragment"
         android:label="Receipt details"
-        tools:layout="@layout/fragment_receipt_details"/>
+        tools:layout="@layout/fragment_receipt_details">
+        <argument
+            android:name="receipt"
+            app:argType="com.example.receipt.recorder.model.Receipt" />
+    </fragment>
+
+
     <include app:graph="@navigation/camera_nav" />
 
 </navigation>

@@ -14,6 +14,7 @@ import androidx.navigation.NavDirections
 import androidx.navigation.fragment.findNavController
 import com.example.receipt.recorder.databinding.FragmentReceiptListBinding
 import com.example.receipt.recorder.extension.stateFlowCollect
+import com.example.receipt.recorder.model.Receipt
 import com.example.receipt.recorder.util.addMediaToGallery
 import kotlinx.coroutines.launch
 import org.koin.android.ext.android.inject
@@ -111,7 +112,7 @@ class ReceiptListFragment : Fragment() {
 
     private fun onConfirmCapture(uri: Uri) {
         navigateTo(
-            ReceiptListFragmentDirections.actionReceiptListFragmentToReceiptDetailsFragment())
+            ReceiptListFragmentDirections.actionReceiptListFragmentToReceiptDetailsFragment(Receipt(uri = uri)))
     }
 
     private fun navigateTo(directions: NavDirections) {
