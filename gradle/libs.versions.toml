@@ -18,6 +18,8 @@ concurrent-futures = "1.2.0"
 exifinterface = "1.3.7"
 roomCommon = "2.6.1"
 roomKtx = "2.6.1"
+coil = "2.5.0"
+pagingRuntimeKtx = "3.3.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -46,6 +48,8 @@ androidx-navigation-safe-args-gradle-plugin = { group = "androidx.navigation", n
 androidx-exifinterface = { group = "androidx.exifinterface", name = "exifinterface", version.ref = "exifinterface" }
 androidx-room-common = { group = "androidx.room", name = "room-common", version.ref = "roomCommon" }
 androidx-room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "roomKtx" }
+coil = { group = "io.coil-kt", name = "coil", version.ref = "coil"}
+androidx-paging-runtime-ktx = { group = "androidx.paging", name = "paging-runtime-ktx", version.ref = "pagingRuntimeKtx" }
 
 
 [plugins]

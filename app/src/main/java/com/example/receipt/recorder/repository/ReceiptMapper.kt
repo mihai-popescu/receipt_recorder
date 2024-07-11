@@ -1,5 +1,6 @@
 package com.example.receipt.recorder.repository
 
+import android.net.Uri
 import com.example.receipt.recorder.model.Receipt
 import com.example.receipt.recorder.model.persistence.ReceiptEntity
 import java.net.URI
@@ -23,7 +24,7 @@ object ReceiptMapperFacadeFactory {
 
     private fun makeReceipt(input: ReceiptEntity): Receipt = Receipt(
         input.receiptId,
-        URI.create(input.uri),
+        Uri.parse(input.uri),
         input.date,
         input.total,
         input.currency,
@@ -32,7 +33,7 @@ object ReceiptMapperFacadeFactory {
 
     private fun makeReceiptEntity(input: Receipt) = ReceiptEntity(
         input.receiptId,
-        input.uri.path,
+        input.uri.path ?: "",
         input.date,
         input.total,
         input.currency,

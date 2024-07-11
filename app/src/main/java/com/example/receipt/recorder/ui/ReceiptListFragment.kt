@@ -9,12 +9,13 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavDirections
 import androidx.navigation.fragment.findNavController
 import com.example.receipt.recorder.databinding.FragmentReceiptListBinding
 import com.example.receipt.recorder.extension.stateFlowCollect
-import com.example.receipt.recorder.ui.placeholder.PlaceholderContent
 import com.example.receipt.recorder.util.addMediaToGallery
+import kotlinx.coroutines.launch
 import org.koin.android.ext.android.inject
 
 /**
@@ -30,16 +31,12 @@ class ReceiptListFragment : Fragment() {
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
+    private lateinit var sourceAdapter: ReceiptSourceAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
         // Inflate the layout for this fragment
         _binding = FragmentReceiptListBinding.inflate(inflater, container, false)
@@ -60,21 +57,30 @@ class ReceiptListFragment : Fragment() {
                     columnCount <= 1 -> LinearLayoutManager(context)
                     else -> GridLayoutManager(context, columnCount)
                 }
-                adapter = MyReceiptListRecyclerViewAdapter(PlaceholderContent.ITEMS)
+                sourceAdapter = ReceiptSourceAdapter {
+
+                }
+                adapter = sourceAdapter
             }
 
-            fabGetWebTimeline.setOnClickListener {
+            fabaddReceipt.setOnClickListener {
                 startMediaCapture()
             }
         }
     }
 
     private fun setupObservers() {
-        stateFlowCollect(viewModel.confirmCapturedContent) {
-            it.getContentIfNotConsumed()?.let { uri ->
-                if (uri != Uri.EMPTY) {
-                    onConfirmCapture(uri)
+        with (viewModel) {
+            stateFlowCollect(confirmCapturedContent) {
+                it.getContentIfNotConsumed()?.let { uri ->
+                    if (uri != Uri.EMPTY) {
+                        onConfirmCapture(uri)
+                    }
                 }
+            }
+
+            stateFlowCollect(receipts) {
+                sourceAdapter.updateData(it)
             }
         }
     }

@@ -15,10 +15,10 @@
         android:layout_marginRight="16dp"
         app:layoutManager="LinearLayoutManager"
         tools:context=".ui.ReceiptListFragment"
-        tools:listitem="@layout/fragment_receipt_item" />
+        tools:listitem="@layout/receipt_item" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab_get_web_timeline"
+        android:id="@+id/fabadd_receipt"
         style="@style/Widget.MaterialComponents.FloatingActionButton"
         android:layout_width="@dimen/fab_size_normal"
         android:layout_height="@dimen/fab_size_normal"

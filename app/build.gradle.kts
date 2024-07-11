@@ -49,10 +49,12 @@ dependencies {
     implementation(libs.navigation.ui.ktx)
 
     implementation(libs.koin)
+    implementation(libs.coil)
     implementation(libs.androidx.recyclerview)
     implementation(libs.androidx.exifinterface)
     implementation(libs.androidx.room.common)
     implementation(libs.androidx.room.ktx)
+    implementation(libs.androidx.paging.runtime.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

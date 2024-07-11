@@ -1,11 +1,10 @@
 package com.example.receipt.recorder.model
 
-import java.net.URI
-import java.util.Date
+import android.net.Uri
 
 data class Receipt (
     val receiptId: Long,
-    val uri: URI,
+    val uri: Uri,
     val date: Long,
     val total: Double,
     val currency: String,
