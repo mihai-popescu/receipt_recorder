@@ -21,9 +21,7 @@ class ReceiptItemViewHolder(binding: ReceiptItemBinding, private val listener: R
 
     fun bind(receipt: Receipt) {
         this.receipt = receipt
-        receipt.uri.let {
-            this.thumbnail.load(it)
-        } ?: this.thumbnail.load(null)
+        this.thumbnail.load(receipt.uri)
     }
 
     companion object {

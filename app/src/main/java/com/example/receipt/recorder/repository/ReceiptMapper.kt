@@ -33,7 +33,7 @@ object ReceiptMapperFacadeFactory {
 
     private fun makeReceiptEntity(input: Receipt) = ReceiptEntity(
         input.receiptId,
-        input.uri.path ?: "",
+        input.uri.toString(),
         input.date,
         input.total,
         input.currency,

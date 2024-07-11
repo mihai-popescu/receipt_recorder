@@ -163,7 +163,7 @@ class CameraFragment : Fragment() {
     }
 
     private fun onCameraPermissionDenied() {
-//        onBackPressed()
+        onBackPressed()
     }
 
     private fun onCameraPermissionRationaleNeeded(rationalNeeded: List<AppPermission>) {

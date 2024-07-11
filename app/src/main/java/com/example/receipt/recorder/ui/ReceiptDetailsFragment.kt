@@ -5,8 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.receipt.recorder.databinding.FragmentReceiptDetailsBinding
+import com.example.receipt.recorder.extension.stateFlowCollect
 import com.example.receipt.recorder.ui.camera.CameraConfirmationFragmentArgs
 import org.koin.android.ext.android.inject
 import org.koin.core.parameter.parametersOf
@@ -41,7 +43,29 @@ class ReceiptDetailsFragment : Fragment() {
     }
 
     private fun setupViews() {
-        viewModel.loadImage(binding.receiptImage)
+        with(binding) {
+            viewModel.loadImage(receiptImage)
+            textFieldDate.editText?.setText(viewModel.receipt.date.toString())
+            textFieldTotal.editText?.setText(viewModel.receipt.total.toString())
+            textFieldCurrency.editText?.setText(viewModel.receipt.currency)
+            textFieldNotes.editText?.setText(viewModel.receipt.notes)
+
+            fabDone.setOnClickListener {
+                viewModel.updateReceipt(textFieldDate.editText?.text.toString().toLong(),
+                    textFieldTotal.editText?.text.toString().toDouble(),
+                    textFieldCurrency.editText?.text.toString(),
+                    textFieldNotes.editText?.text.toString())
+            }
+        }
     }
-    private fun setupObservers() = Unit
+    private fun setupObservers() {
+        stateFlowCollect(viewModel.receiptSaved) {
+            if (it) findNavController().popBackStack()
+        }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 }

@@ -58,8 +58,8 @@ class ReceiptListFragment : Fragment() {
                     columnCount <= 1 -> LinearLayoutManager(context)
                     else -> GridLayoutManager(context, columnCount)
                 }
-                sourceAdapter = ReceiptSourceAdapter {
-
+                sourceAdapter = ReceiptSourceAdapter { receipt ->
+                    onEditReceipt(receipt)
                 }
                 adapter = sourceAdapter
             }
@@ -111,9 +111,14 @@ class ReceiptListFragment : Fragment() {
 
 
     private fun onConfirmCapture(uri: Uri) {
-        navigateTo(
-            ReceiptListFragmentDirections.actionReceiptListFragmentToReceiptDetailsFragment(Receipt(uri = uri)))
+        onEditReceipt(Receipt(uri = uri))
     }
+
+    private fun onEditReceipt(receipt: Receipt) {
+        navigateTo(
+            ReceiptListFragmentDirections.actionReceiptListFragmentToReceiptDetailsFragment(receipt))
+    }
+
 
     private fun navigateTo(directions: NavDirections) {
         with(findNavController()) {
