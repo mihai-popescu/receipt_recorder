@@ -9,21 +9,19 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavDirections
 import androidx.navigation.fragment.findNavController
 import com.example.receipt.recorder.databinding.FragmentReceiptListBinding
 import com.example.receipt.recorder.extension.stateFlowCollect
 import com.example.receipt.recorder.model.Receipt
 import com.example.receipt.recorder.util.addMediaToGallery
-import kotlinx.coroutines.launch
-import org.koin.android.ext.android.inject
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 /**
  * A fragment representing a list of Items.
  */
 class ReceiptListFragment : Fragment() {
-    private val viewModel: ReceiptListViewModel by inject()
+    private val viewModel: ReceiptListViewModel by viewModel()
 
     private var _binding: FragmentReceiptListBinding? = null
 

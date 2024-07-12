@@ -1,5 +1,5 @@
 plugins {
-    kotlin("kapt")
+    alias(libs.plugins.ksp)
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
     id(libs.plugins.androidx.navigation.safeargs.kotlin.get().pluginId)
@@ -54,9 +54,8 @@ dependencies {
     implementation(libs.androidx.recyclerview)
     implementation(libs.androidx.exifinterface)
     implementation(libs.androidx.room.runtime)
-    kapt(libs.androidx.room.compiler)
+    ksp(libs.androidx.room.compiler)
     implementation(libs.androidx.room.ktx)
-//    implementation(libs.androidx.paging.runtime.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -70,6 +69,4 @@ dependencies {
     implementation(libs.camera.camera2)
     implementation(libs.camera.lifecycle)
     implementation(libs.camera.view)
-//    implementation(libs.camera.extensions)
-//    implementation(libs.camera.video)
 }

@@ -13,7 +13,12 @@ import kotlinx.coroutines.launch
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 
-class ReceiptDetailsViewModel(val receipt: Receipt): ViewModel(), KoinComponent {
+class ReceiptDetailsViewModel(receipt: Receipt): ViewModel(), KoinComponent {
+    private val _updateDate = MutableStateFlow(receipt.date)
+    val updateDate = _updateDate.asStateFlow()
+
+    var receipt = receipt
+        private set
     private val receiptRepository: ReceiptRepository by inject()
 
     private val _receiptSaved = MutableStateFlow(false)
@@ -24,27 +29,37 @@ class ReceiptDetailsViewModel(val receipt: Receipt): ViewModel(), KoinComponent 
         view.load(receipt.uri)
     }
 
-    fun updateReceipt(date: Long, total: Double, currency: String, notes: String) {
-        val newReceipt = receipt.copy(
-            date = date,
-            total = total,
-            currency = currency,
-            notes = notes
-        )
+    fun updateReceipt() {
         viewModelScope.launch {
-
-            when (newReceipt.receiptId) {
-                0L -> when (receiptRepository.createReceipt(newReceipt)) {
+            when (receipt.receiptId) {
+                0L -> when (receiptRepository.createReceipt(receipt)) {
                     is Result.Success -> _receiptSaved.value = true
                     else -> // Bubble error
                         _receiptSaved.value = true
                 }
-                else -> when (receiptRepository.updateReceipt(newReceipt)) {
+                else -> when (receiptRepository.updateReceipt(receipt)) {
                     is Result.Success -> _receiptSaved.value = true
                     else -> // Bubble error
                         _receiptSaved.value = true
                 }
             }
         }
+    }
+
+    fun setNewDate(value: Long) {
+        receipt = receipt.copy(date = value)
+        _updateDate.value =value
+    }
+
+    fun setNewCurrency(value: String) {
+        receipt = receipt.copy(currency = value)
+    }
+
+    fun setNewTotal(value: Double) {
+        receipt = receipt.copy(total = value)
+    }
+
+    fun setNewNotes(value: String) {
+        receipt = receipt.copy(notes = value)
     }
 }

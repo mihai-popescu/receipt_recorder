@@ -43,15 +43,11 @@ class CameraConfirmationFragment : Fragment() {
 
     private fun setupViews() {
         with(binding) {
-            backButton.setOnClickListener {
-                findNavController().popBackStack()
-            }
-
             confirmButton.setOnClickListener {
                 savePhoto()
             }
 
-            capturePreview.setImageBitmap(viewModel.getBitmap(viewModel.path))
+            viewModel.loadImage(capturePreview)
         }
     }
 
