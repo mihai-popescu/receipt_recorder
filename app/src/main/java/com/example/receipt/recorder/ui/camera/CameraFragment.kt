@@ -21,9 +21,7 @@ import androidx.camera.core.UseCase
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.concurrent.futures.await
 import androidx.core.content.ContextCompat
-import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
-import androidx.fragment.app.setFragmentResult
 import androidx.fragment.app.setFragmentResultListener
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.lifecycleScope
@@ -121,7 +119,7 @@ class CameraFragment : Fragment() {
             )?.let {
                 viewModel.onCaptureResultReceived(CaptureResult(uri = it))
             }
-            onBackPressed()
+            onBackPressed(false)
         }
     }
 
@@ -176,8 +174,7 @@ class CameraFragment : Fragment() {
                 listOf(
                     AppPermission.ReadExternalStorage,
                     AppPermission.WriteExternalStorage,
-                    AppPermission.ReadMediaImages,
-                    AppPermission.ReadMediaVideo
+                    AppPermission.ReadMediaImages
                 ).any(this::contains) -> R.string.storage_permission_title to R.string.storage_permission_denied
 
                 contains(AppPermission.Camera) -> R.string.camera_permission_title to R.string.camera_permission_denied
@@ -212,7 +209,8 @@ class CameraFragment : Fragment() {
         })
     }
 
-    private fun onBackPressed() {
+    private fun onBackPressed(cancelled: Boolean = true) {
+        if (cancelled) viewModel.onCaptureCancelled(CaptureCancel(""))
         findNavController().popBackStack()
     }
 

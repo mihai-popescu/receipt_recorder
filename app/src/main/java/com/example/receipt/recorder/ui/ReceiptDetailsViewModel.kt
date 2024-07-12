@@ -48,7 +48,7 @@ class ReceiptDetailsViewModel(receipt: Receipt): ViewModel(), KoinComponent {
 
     fun setNewDate(value: Long) {
         receipt = receipt.copy(date = value)
-        _updateDate.value =value
+        _updateDate.value = value
     }
 
     fun setNewCurrency(value: String) {

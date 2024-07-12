@@ -39,6 +39,14 @@ android {
     buildFeatures {
         viewBinding = true
     }
+
+    testOptions {
+        unitTests.isReturnDefaultValues = true
+
+        unitTests {
+            isIncludeAndroidResources = true
+        }
+    }
 }
 
 dependencies {
@@ -59,6 +67,10 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    testImplementation(libs.coroutines.test)
+    testImplementation(libs.mockito.kotlin)
+    testImplementation(libs.roboelectric)
+    testImplementation(libs.koin.test.junit4)
 
 
     implementation(libs.lifecycle.runtime.ktx)
