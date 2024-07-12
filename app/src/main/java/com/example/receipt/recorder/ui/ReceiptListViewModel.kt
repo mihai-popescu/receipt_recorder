@@ -31,6 +31,9 @@ class ReceiptListViewModel : ViewModel(), KoinComponent {
     private val _confirmCapturedContent = MutableStateFlow(Event(Uri.EMPTY))
     val confirmCapturedContent = _confirmCapturedContent.asStateFlow()
 
+    private val _showHelp = MutableStateFlow(true)
+    val showHelp = _showHelp.asStateFlow()
+
     init {
         viewModelScope.launch {
             receiptRepository.getReceipts().collect {
@@ -39,6 +42,7 @@ class ReceiptListViewModel : ViewModel(), KoinComponent {
                     is Result.Error -> _receipts.value = emptyList()
                     // Show error to UI
                 }
+                _showHelp.value = _receipts.value.isEmpty()
             }
         }
     }

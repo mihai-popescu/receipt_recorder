@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.navigation.NavDirections
 import androidx.navigation.fragment.findNavController
 import com.example.receipt.recorder.databinding.FragmentReceiptListBinding
@@ -80,6 +81,11 @@ class ReceiptListFragment : Fragment() {
 
             stateFlowCollect(receipts) {
                 sourceAdapter.updateData(it)
+            }
+
+            stateFlowCollect(showHelp) {
+                binding.helpText.isVisible = it
+                binding.helpArrow.isVisible = it
             }
         }
     }

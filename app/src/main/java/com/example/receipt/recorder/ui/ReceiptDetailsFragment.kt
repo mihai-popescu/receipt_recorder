@@ -63,7 +63,7 @@ class ReceiptDetailsFragment : Fragment() {
             }
 
             textFieldTotal.editText?.doOnTextChanged { text, _, _, _ ->
-                viewModel.setNewTotal(text.toString().toDouble())
+                viewModel.setNewTotal(text.toString().toDoubleOrNull() ?: .0)
             }
 
             textFieldNotes.editText?.doOnTextChanged { text, _, _, _ ->

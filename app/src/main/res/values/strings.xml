@@ -105,4 +105,5 @@
     <string name="total">Total</string>
     <string name="currency">Currency</string>
     <string name="notes">Notes</string>
+    <string name="fragment_receipt_list_help_text">Add receipt/invoice here</string>
 </resources>
