@@ -1,5 +1,6 @@
 package com.example.receipt.recorder
 
+import com.example.receipt.recorder.document.scanner.DocumentScannerViewModel
 import com.example.receipt.recorder.model.Receipt
 import com.example.receipt.recorder.model.camera.CameraData
 import com.example.receipt.recorder.persistence.ReceiptRecorderDatabaseRoom
@@ -31,6 +32,8 @@ val ReceiptRecorderModule = module {
     viewModel { (receipt: Receipt) -> ReceiptDetailsViewModel(receipt) }
     viewModel { CameraViewModel() }
     viewModel { (path: String) -> CameraConfirmationViewModel(path) }
+
+    viewModel { DocumentScannerViewModel() }
 
 
     scope(named(CameraData.scopeName)) {

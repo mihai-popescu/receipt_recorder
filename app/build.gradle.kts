@@ -62,6 +62,7 @@ dependencies {
     implementation(libs.androidx.recyclerview)
     implementation(libs.androidx.exifinterface)
     implementation(libs.androidx.room.runtime)
+    implementation(libs.play.services.mlkit.document.scanner)
     ksp(libs.androidx.room.compiler)
     implementation(libs.androidx.room.ktx)
     testImplementation(libs.junit)

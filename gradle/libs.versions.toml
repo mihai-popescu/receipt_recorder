@@ -21,6 +21,7 @@ coil = "2.6.0"
 coroutines-version = "1.8.1"
 mockito-kotlin-ver = "5.4.0"
 robolectric-version = "4.13"
+playServicesMlkitDocumentScanner = "16.0.0-beta1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -49,6 +50,7 @@ coil = { group = "io.coil-kt", name = "coil", version.ref = "coil"}
 coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "coroutines-version" }
 mockito-kotlin = { group = "org.mockito.kotlin" , name = "mockito-kotlin", version.ref = "mockito-kotlin-ver" }
 roboelectric = { group = "org.robolectric", name = "robolectric", version.ref = "robolectric-version"}
+play-services-mlkit-document-scanner = { group = "com.google.android.gms", name = "play-services-mlkit-document-scanner", version.ref = "playServicesMlkitDocumentScanner" }
 
 
 

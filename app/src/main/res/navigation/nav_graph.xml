@@ -17,6 +17,9 @@
         <action
             android:id="@+id/action_ReceiptListFragment_to_camera_nav"
             app:destination="@id/camera_nav" />
+        <action
+            android:id="@+id/action_ReceiptListFragment_to_documentScannerFragment"
+            app:destination="@id/documentScannerFragment" />
     </fragment>
     <fragment
         android:id="@+id/ReceiptDetailsFragment"
@@ -30,5 +33,9 @@
 
 
     <include app:graph="@navigation/camera_nav" />
+    <fragment
+        android:id="@+id/documentScannerFragment"
+        android:name="com.example.receipt.recorder.document.scanner.DocumentScannerFragment"
+        android:label="DocumentScannerFragment" />
 
 </navigation>

@@ -94,7 +94,7 @@ class ReceiptListFragment : Fragment() {
         viewModel.camera.startMediaCapture(
             parent = this@ReceiptListFragment,
             navDirections =
-            ReceiptListFragmentDirections.actionReceiptListFragmentToCameraNav(),
+            ReceiptListFragmentDirections.actionReceiptListFragmentToDocumentScannerFragment(),
             onMediaCaptureSuccess = ::onMediaCaptureSuccess,
             onMediaCaptureFailure = ::onMediaCaptureFailure)
     }
